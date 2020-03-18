@@ -1,0 +1,36 @@
+/* Style for cards */
+
+.card {
+    display: block;
+    position: absolute;
+    width: 200px;
+    height: 320px;
+    border-radius: 10px;
+    background-color: rgb(230, 230, 230);
+    border: 1px solid black;
+}
+
+.letter {
+    float: left;
+    margin-left: 20px;
+    margin-top: 20px;
+    font-size: 40px;
+}
+
+.color {
+    float: right;
+    margin-right: 20px;
+    margin-top: 20px;
+}
+
+.color img {
+    width: 50px;
+    height: 50px;
+    /* Disable anti-alisasing */
+    image-rendering: optimizeSpeed;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -o-crisp-edges;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: pixelated;
+    image-rendering: optimize-contrast;
+}
