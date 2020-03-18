@@ -15,12 +15,20 @@
     margin-left: 20px;
     margin-top: 20px;
     font-size: 40px;
+    /* Unselectable */
+    -webkit-user-select: none;      
+    -moz-user-select: none;
+    user-select: none;
 }
 
 .color {
     float: right;
     margin-right: 20px;
     margin-top: 20px;
+    /* Unselectable */
+    -webkit-user-select: none;      
+    -moz-user-select: none;
+    user-select: none;
 }
 
 .color img {
