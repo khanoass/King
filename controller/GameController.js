@@ -11,7 +11,7 @@ class GameController {
         let cards = this.model.deck.cards;
 
         for(var i = 0; i < cards.length; i++) {
-            cards[i].setPosition(new Vector2(10 * i + 100, 200));
+            cards[i].setPosition(10 * i + 100, 200);
             this.view.displayCard(cards[i]);
             this.view.updateCard(cards[i]);
         }
@@ -21,15 +21,15 @@ class GameController {
     onCardHeld(card, event) {
 
         // Calculate position values
-        this.diffX = event.clientX - card.position.x;
-        this.diffY = event.clientY - card.position.y;
+        this.diffX = event.clientX - card.x;
+        this.diffY = event.clientY - card.y;
 
         // The card is being dragged
         this.draggingCard = true;
         this.cardDragged = card;
 
-        // Update the card's style
-        this.cardRotation = this.cardDragged.rotationDeg;
+        // Update the card's style and priority
+        this.cardRotation = this.cardDragged.deg;
         this.cardDragged.setRotation(15 + this.cardRotation);
         this.view.updateCard(this.cardDragged);
     }
@@ -39,7 +39,7 @@ class GameController {
         if(this.draggingCard) {
 
             // Update its position
-            this.cardDragged.setPosition(new Vector2(event.clientX - this.diffX, event.clientY - this.diffY));
+            this.cardDragged.setPosition(event.clientX - this.diffX, event.clientY - this.diffY);
             this.view.updateCard(this.cardDragged);
         }
     }

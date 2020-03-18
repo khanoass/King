@@ -10,7 +10,7 @@ class Deck {
 
                 // Init at pos (0; 0) and with 0° rotation
                 let card = new Card(j, LETTERS[j], COLORS[i]);
-                card.setPosition(new Vector2(0, 0));
+                card.setPosition(0, 0);
                 card.setRotation(0);
 
                 this.cards[c] = card;

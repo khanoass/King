@@ -7,13 +7,14 @@ class Card {
     }
 
     // Sets absolute position amount
-    setPosition(position) {
-        this.position = position;
+    setPosition(x, y) {
+        this.x = x;
+        this.y = y
     }
 
     // Sets rotation amount
     setRotation(deg) {
-        this.rotationDeg = deg;
+        this.deg = deg;
     }
 
     // Returns card HTML source

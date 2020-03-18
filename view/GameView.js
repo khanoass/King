@@ -45,9 +45,9 @@ class GameView {
     updateCard(card) {
 
         let realcard = this.getCardFromSrc(card);
-        let x = card.position.x;
-        let y = card.position.y;
-        let deg = card.rotationDeg;
+        let x = card.x;
+        let y = card.y;
+        let deg = card.deg;
 
         realcard.style.transform = 'translate('+ x + 'px,' + y + 'px' +')';
         realcard.style.transform += 'rotate('+ deg +'deg)';
