@@ -1,5 +1,5 @@
 # King
-A King Game in JS
+A King Game
 
 Not much has been done yet...
 
