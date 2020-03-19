@@ -7,7 +7,7 @@ class GameController {
         this.view = view;
         this.view.setListener(this);
 
-        console.log(this);
+        this.view.displayHand(400, 700, 80, 120, 10, this.model.players[0]);
     }
 
     // When a card is clicked on

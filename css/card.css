@@ -3,18 +3,14 @@
 .card {
     display: block;
     position: absolute;
-    width: 80px;
-    height: 100px;
     border-radius: 10px;
     background-color: rgb(230, 230, 230);
     border: 1px solid black;
 }
 
 .letter {
-    float: left;
-    margin-left: 5px;
-    margin-top: 5px;
     font-size: 24px;
+    margin-left: 10px;
     /* Unselectable */
     -webkit-user-select: none;      
     -moz-user-select: none;
@@ -22,9 +18,6 @@
 }
 
 .color {
-    float: right;
-    margin-right: 23px;
-    margin-top: 32px;
     /* Unselectable */
     -webkit-user-select: none;      
     -moz-user-select: none;
@@ -32,8 +25,12 @@
 }
 
 .color img {
+    display: block;
     width: 32px;
     height: 32px;
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
     /* Disable anti-alisasing */
     image-rendering: optimizeSpeed;
     image-rendering: -moz-crisp-edges;

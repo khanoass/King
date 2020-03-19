@@ -18,6 +18,20 @@ class GameView {
         document.getElementById('main').insertAdjacentHTML('beforeEnd', html);
     }
 
+    // Displays the hand of a player to the page
+    displayHand(x, y, width, height, spacing, player) {
+
+        for(var i = 0; i < player.cards.length; i++) {
+
+            let card = player.cards[i];
+            card.setSize(width, height);
+            card.setPosition(x + (width + spacing) * i, y);
+
+            this.displayCard(card);
+            this.updateCard(card);
+        }
+    }
+
     // Add a card to the page, with event handlers and whatnot
     displayCard(card) {
 
@@ -41,15 +55,13 @@ class GameView {
         });
     }
 
-    // Updates a card
+    // Updates an actual card based on its js object
     updateCard(card) {
 
         let realcard = this.getCardFromSrc(card);
-        let x = card.x;
-        let y = card.y;
-        let deg = card.deg;
 
-        realcard.style.transform = 'translate('+ x + 'px,' + y + 'px' +')';
-        realcard.style.transform += 'rotate('+ deg +'deg)';
+        realcard.style.width = card.width + 'px';
+        realcard.style.height = card.height + 'px';
+        realcard.style.transform = 'translate('+ card.x + 'px,' + card.y + 'px' +') rotate('+ card.deg +'deg)';
     }
 }
