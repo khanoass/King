@@ -18,6 +18,29 @@ class GameModel {
             p.setCards(this.dealRandomCardsFromDeck(this.cardsNbPerPlayer));
             this.players[i] = p;
         }
+
+        // The "center" magnets
+        this.magnets = new Array(4);
+
+        this.magnets[0] = new Magnet(0.1, 'locking');
+        this.magnets[0].setPosition(780, 300);
+        this.magnets[0].setSize(80, 120);
+        this.magnets[0].setRotation(90);
+
+        this.magnets[1] = new Magnet(0.2, 'locking');
+        this.magnets[1].setPosition(900, 180);
+        this.magnets[1].setSize(80, 120);
+        this.magnets[1].setRotation(180);
+
+        this.magnets[2] = new Magnet(0.3, 'locking');
+        this.magnets[2].setPosition(1020, 300);
+        this.magnets[2].setSize(80, 120);
+        this.magnets[2].setRotation(270);
+
+        this.magnets[3] = new Magnet(0.4, 'locking');
+        this.magnets[3].setPosition(900, 420);
+        this.magnets[3].setSize(80, 120);
+        this.magnets[3].setRotation(0);
     }
 
     // Returns random cards that have not yet been dealt

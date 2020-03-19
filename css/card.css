@@ -38,4 +38,11 @@
     image-rendering: -webkit-optimize-contrast;
     image-rendering: pixelated;
     image-rendering: optimize-contrast;
+    /* Disable the image from being draggable */
+    user-drag: none; 
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }

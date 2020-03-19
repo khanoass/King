@@ -1,0 +1,8 @@
+/* Style for card magnets */
+
+.magnet {
+    display: block;
+    position: absolute;
+    border-radius: 10px;
+    background-color: rgb(202, 202, 202);
+}

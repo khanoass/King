@@ -10,6 +10,15 @@ class Card {
         this.width = 0;
         this.height = 0;
         this.deg = 0;
+
+        this.boundX = 0;
+        this.boundY = 0;
+    }
+
+    // Set absolute start position
+    setBoundPosition(x, y) {
+        this.boundX = x;
+        this.boundY = y;
     }
 
     // Sets absolute position amount
@@ -27,6 +36,11 @@ class Card {
     // Sets rotation amount
     setRotation(deg) {
         this.deg = deg;
+    }
+
+    // Sets the magnet
+    setMagnet(magnet) {
+        this.magnet = magnet;
     }
 
     // Returns card HTML source
