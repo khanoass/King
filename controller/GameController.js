@@ -7,14 +7,7 @@ class GameController {
         this.view = view;
         this.view.setListener(this);
 
-        // Display cards
-        let cards = this.model.deck.cards;
-
-        for(var i = 0; i < cards.length; i++) {
-            cards[i].setPosition(10 * i + 100, 200);
-            this.view.displayCard(cards[i]);
-            this.view.updateCard(cards[i]);
-        }
+        console.log(this);
     }
 
     // When a card is clicked on
@@ -38,7 +31,7 @@ class GameController {
     onMouseMoved(event) {
         if(this.draggingCard) {
 
-            // Update its position
+            // Update the card's position position
             this.cardDragged.setPosition(event.clientX - this.diffX, event.clientY - this.diffY);
             this.view.updateCard(this.cardDragged);
         }
@@ -48,7 +41,7 @@ class GameController {
     onMouseReleased() {
         if(this.draggingCard) {
 
-            // Reset its rotation
+            // Reset the card's rotation
             this.cardDragged.setRotation(this.cardRotation);
             this.view.updateCard(this.cardDragged);
 
