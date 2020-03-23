@@ -20,8 +20,18 @@ class GameView {
     }
 
     // Adds source to the page
-    displaySrc(html) {
-        document.getElementById('main').insertAdjacentHTML('beforeEnd', html);
+    displaySrc(html, div, mode) {
+        document.getElementById(div).insertAdjacentHTML(mode, html);
+    }
+
+    // Adds source to the top of the page
+    displaySrcTop(html, div) {
+        this.displaySrc(html, div, 'beforeEnd');
+    }
+
+    // Adds DOM HTML to th etop of the page
+    displayHTMLTop(object, div) {
+        document.getElementById(div).appendChild(object);
     }
 
       ////////////////////////////
@@ -46,19 +56,67 @@ class GameView {
     displayCard(card) {
 
         let view = this;
-        this.displaySrc(card.src());
-        let realcard = this.getCardFromSrc(card);
+        this.displaySrcTop(card.src(), 'cards');
 
         // Hold
+        let realcard = this.getCardFromSrc(card);
         realcard.addEventListener('mousedown', function(event) {
             view.listener.onCardHeld(card, event);
         });
     }
 
+    // Adds a magnet to the page
     displayMagnet(magnet) {
 
-        let view = this;
-        this.displaySrc(magnet.src());
+        this.displaySrcTop(magnet.src(), 'magnets');
+    }
+
+    // Displays a card in the center
+    displayCardInCenter(card) {
+
+        this.displaySrcTop(card.src(), 'center');
+    }
+
+    // Displays a card in the held
+    displayCardInHeld(card) {
+
+        this.displaySrcTop(card.src(), 'held');
+    }
+
+    // Removes a card from the page
+    removeCard(card) {
+
+        this.getCardFromSrc(card).outerHTML = '';
+    }
+
+    // Sets the card in held in a div
+    heldToDiv(div, realcard) {
+
+        let held = document.getElementById('held');
+        let card = held.firstChild;
+        
+        if(card != undefined) {
+            held.innerHTML = '';
+            this.displayHTMLTop(card, div);
+
+            // Hold
+            let objectcard = realcard;
+            card.addEventListener('mousedown', function(event) {
+                view.listener.onCardHeld(objectcard, event);
+            });
+        }
+    }
+
+    // Sets the card in 'held' in 'cards'
+    heldToCards(held) {
+
+        this.heldToDiv('cards', held);
+    }
+
+    // Sets the card in 'held' in 'center'
+    heldToCenter(held) {
+
+        this.heldToDiv('center', held);
     }
 
       ////////////////////////////
@@ -75,6 +133,7 @@ class GameView {
         realcard.style.transform = 'translate('+ card.x + 'px,' + card.y + 'px' +') rotate('+ card.deg +'deg)';
     }
 
+    // Updates a magnet based on its object
     updateMagnet(magnet) {
 
         let realmagnet = this.getMagnetFromSrc(magnet);
@@ -85,8 +144,8 @@ class GameView {
 
         // Glow
         if(magnet.glow)
-            realmagnet.style.border = '1px solid black';
+            realmagnet.style.boxShadow = '0 0 3px 3px gray';
         else
-            realmagnet.style.border = 'none';
+            realmagnet.style.boxShadow = 'none';
     }
 }

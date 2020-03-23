@@ -10,15 +10,7 @@ class Card {
         this.width = 0;
         this.height = 0;
         this.deg = 0;
-
-        this.boundX = 0;
-        this.boundY = 0;
-    }
-
-    // Set absolute start position
-    setBoundPosition(x, y) {
-        this.boundX = x;
-        this.boundY = y;
+        this.baseRotation = 0;
     }
 
     // Sets absolute position amount
@@ -36,6 +28,17 @@ class Card {
     // Sets rotation amount
     setRotation(deg) {
         this.deg = deg;
+    }
+
+    // Sets base rotation
+    setBaseRotation(deg) {
+        this.baseRotation = deg;
+    }
+
+    reset() {
+        this.x = this.magnet.x;
+        this.y = this.magnet.y;
+        this.deg = this.baseRotation;
     }
 
     // Sets the magnet
