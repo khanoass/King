@@ -48,6 +48,11 @@ class GameView {
         return document.getElementsByClassName('magnet ' + magnet.id)[0];
     }
 
+    // Gets a card from src
+    getFaceDownCardFromSrc(card) {
+        return document.getElementsByClassName('facedowncard ' + card.id)[0];
+    }
+
       ////////////////////////////
      /// DISPLAYING ELEMENTS
     ////////////////////////////
@@ -63,6 +68,18 @@ class GameView {
         realcard.addEventListener('mousedown', function(event) {
             view.listener.onCardHeld(card, event);
         });
+    }
+
+    // Add a face down card to the page
+    displayFaceDownCard(card) {
+
+        this.displaySrcTop(card.src(), 'facedown');
+
+        let realcard = this.getFaceDownCardFromSrc(card);
+
+        realcard.style.width = card.width + 'px';
+        realcard.style.height = card.height + 'px';
+        realcard.style.transform = 'translate('+ card.x + 'px,' + card.y + 'px' +') rotate('+ card.deg +'deg)';
     }
 
     // Adds a magnet to the page

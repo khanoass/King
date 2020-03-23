@@ -6,41 +6,14 @@ class GameModel {
         this.deck = new Deck();
         this.cardsDealt = new Array(52);
 
-        // The players
-        this.playerNb = 4;
-        this.players = new Array(this.playerNb);
-
-        // Dealing 13 random cards to each player
+        // Getting the 13 dealt cards for this player in the backend
         this.cardsNbPerPlayer = 13;
+        this.player = new Player();
 
-        for(var i = 0; i < this.playerNb; i++) {
-            let p = new Player();
-            p.setCards(this.dealRandomCardsFromDeck(this.cardsNbPerPlayer));
-            this.players[i] = p;
-        }
+        //this.player.setCards(this.getDealtCards()); TODO /!\
+        this.player.setCards(this.dealRandomCardsFromDeck(this.cardsNbPerPlayer)); // Client-side dealing, temporary
 
-        // The "center" magnets
-        this.magnets = new Array(4);
-
-        this.magnets[0] = new Magnet(0.1, MagnetType.LOCKING);
-        this.magnets[0].setPosition(780, 300);
-        this.magnets[0].setSize(80, 120);
-        this.magnets[0].setRotation(90);
-
-        this.magnets[1] = new Magnet(0.2, MagnetType.LOCKING);
-        this.magnets[1].setPosition(900, 180);
-        this.magnets[1].setSize(80, 120);
-        this.magnets[1].setRotation(180);
-
-        this.magnets[2] = new Magnet(0.3, MagnetType.LOCKING);
-        this.magnets[2].setPosition(1020, 300);
-        this.magnets[2].setSize(80, 120);
-        this.magnets[2].setRotation(270);
-
-        this.magnets[3] = new Magnet(0.4, MagnetType.LOCKING);
-        this.magnets[3].setPosition(900, 420);
-        this.magnets[3].setSize(80, 120);
-        this.magnets[3].setRotation(0);
+        this.center = new Center(800, 200, 300, 300, 80, 120);
     }
 
     // Returns random cards that have not yet been dealt
@@ -60,5 +33,10 @@ class GameModel {
         }
 
         return out;
+    }
+
+    // Returns the cards fetched from Dealer.php (ajax)
+    getDealtCards() {
+
     }
 }

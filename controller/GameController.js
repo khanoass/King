@@ -10,11 +10,21 @@ class GameController {
         this.cardHeldRotation = 15;
 
         // Center magnets
-        displayMagnets(this.model.magnets, this.view);
+        displayMagnets(this.model.center.magnets, this.view);
 
         // Hand
-        this.hand = new HandManager(this.model.players[0].cards, this.view);
-        this.hand.displayHand(400, 700, 80, 120, 10);
+        this.hand = new Hand(this.model.player.cards, this.view);
+        this.hand.displayHand(400, 750, 80, 120, 10);
+
+        // Face down hands
+        let h2 = new DecoHand(this.model.cardsNbPerPlayer, this.view, 2);
+        h2.displayHand(600, 200, 40, 60, -15, Direction.VERTICAL);
+
+        let h3 = new DecoHand(this.model.cardsNbPerPlayer, this.view, 3);
+        h3.displayHand(785, 50, 40, 60, -15, Direction.HORIZONTAL);
+
+        let h4 = new DecoHand(this.model.cardsNbPerPlayer, this.view, 4);
+        h4.displayHand(1260, 200, 40, 60, -15, Direction.VERTICAL);
     }
 
       ////////////////////////////
@@ -39,7 +49,6 @@ class GameController {
             
             // Display card in held div
             this.view.removeCard(this.cardDragged);
-            //this.view.heldToCards(this.cardDragged);
             this.view.displayCardInHeld(this.cardDragged);
             this.view.updateCard(this.cardDragged);
         }
@@ -54,7 +63,7 @@ class GameController {
             this.view.updateCard(this.cardDragged);
 
             // Unglow all magnets
-            let magnets = this.model.magnets.concat(this.hand.magnets);
+            let magnets = this.model.center.magnets.concat(this.hand.magnets);
             unglowMagnets(magnets, this.view);
 
             // If the card is on a magnet
@@ -73,7 +82,7 @@ class GameController {
         if(this.draggingCard) {
 
             // If the card is on a magnet
-            let magnets = this.model.magnets.concat(this.hand.magnets);
+            let magnets = this.model.center.magnets.concat(this.hand.magnets);
             let magnet = isCardOnMagnet(this.cardDragged, magnets);
             if(magnet != undefined) {
 

@@ -1,5 +1,6 @@
 // Returns true if rect1 and rect2 are colliding, false otherwise
-function areColliding(rect1, rect2) {
+// Simple AABB Collision; to be bettered with OBB/SAT
+function areCollidingAABB(rect1, rect2) {
 
     return (rect1.x < rect2.x + rect2.width     &&
             rect1.x + rect1.width > rect2.x     &&
@@ -13,7 +14,7 @@ function isCardOnMagnet(card, magnets) {
     for(var i = 0; i < magnets.length; i++) {
 
         let m = magnets[i];
-        if(areColliding(new Rect(card.x, card.y, card.width, card.height), new Rect(m.x, m.y, m.width, m.height))) {
+        if(areCollidingAABB(new Rect(card.x, card.y, card.width, card.height), new Rect(m.x, m.y, m.width, m.height))) {
             return m;
         }
     }
@@ -59,5 +60,5 @@ function setCardOnMagnet(card, magnet) {
     card.setMagnet(magnet);
 
     // Card of magnet
-    magnet.addCard(this.cardDragged);
+    magnet.addCard(card);
 }

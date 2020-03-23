@@ -1,4 +1,4 @@
-class HandManager {
+class Hand {
 
     constructor(cards, view) {
 

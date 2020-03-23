@@ -8,7 +8,7 @@
     border: 1px solid black;
 }
 
-.letter {
+.card .letter {
     font-size: 24px;
     margin-left: 10px;
     /* Unselectable */
@@ -17,14 +17,14 @@
     user-select: none;
 }
 
-.color {
+.card .color {
     /* Unselectable */
     -webkit-user-select: none;      
     -moz-user-select: none;
     user-select: none;
 }
 
-.color img {
+.card .color img {
     display: block;
     width: 32px;
     height: 32px;
