@@ -1,9 +1,0 @@
-/* Style for face down cards */
-
-.facedowncard {
-    display: block;
-    position: absolute;
-    border-radius: 10px;
-    background-color: rgb(136, 166, 194);
-    border: 1px solid black;
-}

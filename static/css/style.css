@@ -1,0 +1,23 @@
+/* General style */
+
+/* Fearlessly font */
+@font-face {
+    font-family: 'Fearlessly';
+    src: url('../../resources/fonts/fearlessly.ttf');
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+
+    font-family: 'Fearlessly', Verdana, sans-serif;
+    font-size: 16px;
+}
+
+#preload {
+    display: table;
+    margin: auto;
+    margin-top: 250px;
+    font-size: 54px;
+}
